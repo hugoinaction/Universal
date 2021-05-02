@@ -26,6 +26,10 @@
 
                         <p class="text-muted text-uppercase mb-small text-right">{{ if .Params.author }}{{ i18n "authorBy" }} <a href="#">{{ .Params.author }}</a> | {{ end }}{{ .Date.Format (default "January 2, 2006" .Site.Params.date_format) }}</p>
 
+                        {{ if (default .Params.banner (.Resources.GetMatch "cover.*")) }}
+                            <img class="img-responsive" style="padding-bottom: 30px" src="{{with .Resources.GetMatch "cover.*"}}{{.RelPermalink}}{{else}} {{ .Site.BaseURL}}{{ .Params.banner }}{{end}}" class="img-responsive" alt="{{ .Title }}">
+                          {{ end }}
+
                         <div id="post-content">
                           {{ .Content }}
                         </div>
