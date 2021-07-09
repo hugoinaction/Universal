@@ -22,8 +22,8 @@
                     <div class="box-image-text blog">
                         <div class="top">
                             <div class="image" style="overflow:hidden">
-                                {{ if (default .Params.banner .Resources.GetMatch "cover.*") }}
-                                <img src="{{with .Resources.GetMatch "cover.*"}}{{.RelPermalink}}{{else}} {{ .Site.BaseURL}}{{ .Params.banner }}{{end}}" class="img-responsive" alt="" >
+                                {{ if (default .Params.banner (.Resources.GetMatch "cover.*")) }}
+                                <img src="{{with (.Resources.GetMatch "cover.*")}}{{.RelPermalink}}{{else}} {{ .Site.BaseURL}}{{ .Params.banner }}{{end}}" class="img-responsive" alt="" >
                                 {{ else }}
                                 <img src="{{ .Site.BaseURL}}img/placeholder.png" class="img-responsive" alt="">
                                 {{ end }}
